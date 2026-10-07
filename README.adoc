@@ -1,3 +1,53 @@
+= fullstack4j start
+
+A fork of https://github.com/spring-io/start.spring.io[start.spring.io] that runs at
+https://start.fullstack4j.dev. It offers everything start.spring.io does, plus
+*Apache Wicket*, through https://danielbartl.github.io/wicket-spring-boot-starter/[the Wicket
+Spring Boot Starter], in a Wicket-orange UI. Generated projects build with Maven by default.
+
+== What differs from upstream
+
+The fork deliberately stays close to upstream, so that new Spring Boot versions and fixes keep
+arriving through regular merges:
+
+* `start-site/src/main/resources/application.yml`: the Apache Wicket entry at the top of the
+  "Web" group, and Maven instead of Gradle as the default project type. Both are marked with a
+  `fullstack4j` comment or sit next to one.
+* `start-client`: the logo, colors, icons, social card, page metadata and links, and Wicket
+  weighted first in the dependency search (`src/Extend.json`).
+* `Dockerfile` and `railway.json`: the container image and its Railway deployment.
+
+== Updating from upstream
+
+[indent=0]
+----
+    $ git remote add upstream https://github.com/spring-io/start.spring.io.git   # once
+    $ git fetch upstream
+    $ git merge upstream/main
+----
+
+Conflicts, if any, are limited to the files listed above. Upstream builds against
+Spring Initializr snapshots from https://repo.spring.io/snapshot, and so does this fork.
+
+== Running it
+
+[indent=0]
+----
+    $ docker build -t fullstack4j-start .
+    $ docker run -p 8080:8080 fullstack4j-start
+----
+
+On Railway, the service builds from the `Dockerfile` (see `railway.json`), listens on the
+`PORT` Railway provides and reports its health at `/actuator/health`.
+
+== Trademarks
+
+Spring is a trademark of Broadcom Inc. Apache Wicket is a trademark of The Apache Software
+Foundation. This project is not affiliated with or endorsed by either. The upstream
+README follows.
+
+'''
+
 = start.spring.io image:https://badges.gitter.im/spring-io/initializr.svg[link="https://gitter.im/spring-io/initializr?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 :library: https://github.com/spring-io/initializr
 
