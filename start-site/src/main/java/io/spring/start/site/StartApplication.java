@@ -66,7 +66,7 @@ public class StartApplication {
 	@Bean
 	public StartInitializrMetadataUpdateStrategy initializrMetadataUpdateStrategy(
 			RestTemplateBuilder restTemplateBuilder, JsonMapper jsonMapper) {
-		RestTemplate restTemplate = restTemplateBuilder.defaultHeader(HttpHeaders.USER_AGENT, "start.spring.io")
+		RestTemplate restTemplate = restTemplateBuilder.defaultHeader(HttpHeaders.USER_AGENT, "start.fullstack4j.dev")
 			.build();
 		return new StartInitializrMetadataUpdateStrategy(restTemplate, jsonMapper);
 	}
