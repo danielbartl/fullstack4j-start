@@ -261,6 +261,24 @@ initializr:
               href: https://docs.spring.io/spring-modulith/reference/
     - name: Web
       content:
+        # fullstack4j: Apache Wicket via dev.jbaby:wicket-spring-boot-starter
+        - name: Apache Wicket
+          id: wicket
+          groupId: dev.jbaby
+          artifactId: wicket-spring-boot-starter
+          description: Build component-oriented, server-side web applications in plain Java and HTML with Apache Wicket. Brings Spring MVC and an embedded Tomcat.
+          facets:
+            - web
+          compatibilityRange: "[4.0.0,4.2.0-M1)"
+          mappings:
+            - compatibilityRange: "[4.0.0,4.2.0-M1)"
+              version: 0.1.0
+          links:
+            - rel: reference
+              href: https://danielbartl.github.io/wicket-spring-boot-starter/
+            - rel: guide
+              href: https://wicket.apache.org/learn/
+              description: Learning Apache Wicket
         - name: Spring Web
           id: web
           description: Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.
@@ -2279,7 +2297,7 @@ initializr:
         build: gradle
         dialect: groovy
         format: project
-      default: true
+      default: false
       action: /starter.zip
     - name: Gradle - Kotlin
       id: gradle-project-kotlin
@@ -2304,7 +2322,7 @@ initializr:
       tags:
         build: maven
         format: project
-      default: false
+      default: true
       action: /starter.zip
     - name: Maven POM
       id: maven-build
