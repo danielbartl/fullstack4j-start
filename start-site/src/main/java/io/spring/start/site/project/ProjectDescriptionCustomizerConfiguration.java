@@ -20,6 +20,7 @@ import io.spring.initializr.generator.project.ProjectDescriptionCustomizer;
 import io.spring.start.site.extension.dependency.jooq.JooqVersionProjectDescriptionCustomizer;
 import io.spring.start.site.extension.dependency.timefold.TimefoldVersionProjectDescriptionCustomizer;
 import io.spring.start.site.extension.dependency.vaadin.VaadinVersionProjectDescriptionCustomizer;
+import io.spring.start.site.extension.dependency.wicket.WicketJavaVersionProjectDescriptionCustomizer;
 import io.spring.start.site.project.dependency.springcloud.SpringCloudResilience4JProjectDescriptionCustomizer;
 
 import org.springframework.context.annotation.Bean;
@@ -56,6 +57,11 @@ public class ProjectDescriptionCustomizerConfiguration {
 	@Bean
 	TimefoldVersionProjectDescriptionCustomizer timefoldVersionProjectDescriptionCustomizer() {
 		return new TimefoldVersionProjectDescriptionCustomizer();
+	}
+
+	@Bean
+	WicketJavaVersionProjectDescriptionCustomizer wicketJavaVersionProjectDescriptionCustomizer() {
+		return new WicketJavaVersionProjectDescriptionCustomizer();
 	}
 
 }
