@@ -1,5 +1,9 @@
 [
   {
+    "id": "wicket",
+    "weight": 100
+  },
+  {
     "id": "web",
     "weight": 100
   },

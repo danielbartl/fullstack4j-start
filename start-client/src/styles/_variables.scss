@@ -5,8 +5,8 @@ $light-background: #fff;
 $light-background-seconday: #ecf2f2;
 $light-color: #000;
 $light-border: #dce8e8;
-$light-primary: #6db33f;
-$light-link: #086dc3;
+$light-primary: #ea4d0e; // fullstack4j: Apache Wicket orange
+$light-link: #c2410c;
 $light-placeholder: color.adjust($light-border, $lightness: 5%);
 $light-outline: color.adjust($light-border, $lightness: -15%);
 
@@ -16,8 +16,8 @@ $dark-background: #1b1f23;
 $dark-background-secondary: #262a2d;
 $dark-color: #fff;
 $dark-border: #4a5053;
-$dark-primary: #6db33f;
-$dark-link: #086dc3;
+$dark-primary: #ea4d0e;
+$dark-link: #ff8a5c;
 $dark-placeholder: #262a2d;
 
 // Global

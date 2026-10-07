@@ -123,7 +123,7 @@ function SideLeft() {
             <a
               rel='noreferrer noopener'
               target='_blank'
-              href='https://github.com/spring-io/start.spring.io'
+              href='https://github.com/danielbartl/fullstack4j-start'
             >
               <span className='a-content' tabIndex='-1'>
                 <IconGithub />
@@ -148,6 +148,26 @@ function SideLeft() {
                   <Header />
                   <div>
                     <ul>
+                      <li>
+                        <a
+                          id='ql-help-wicket'
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          href='https://wicket.apache.org/learn/'
+                        >
+                          Learn Apache Wicket
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          id='ql-help-wicket-starter'
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          href='https://danielbartl.github.io/wicket-spring-boot-starter/'
+                        >
+                          The Wicket Spring Boot Starter
+                        </a>
+                      </li>
                       <li>
                         <a
                           id='ql-help-projects'
@@ -206,7 +226,7 @@ function SideLeft() {
                         <a
                           rel='noreferrer noopener'
                           target='_blank'
-                          href='https://github.com/spring-io/start.spring.io'
+                          href='https://github.com/danielbartl/fullstack4j-start'
                         >
                           <span className='a-content' tabIndex='-1'>
                             Github
@@ -216,13 +236,17 @@ function SideLeft() {
                     </ul>
                   </div>
                   <div className='copyright'>
-                    © 2005-{new Date().getFullYear()} Broadcom. All Rights
-                    Reserved.
-                    <br />
-                    The term &quot;Broadcom&quot; refers to Broadcom Inc. and/or
-                    its subsidiaries
-                    <br />
-                    start.spring.io is powered by{' '}
+                    fullstack4j start is based on{' '}
+                    <span>
+                      <a
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        href='https://github.com/spring-io/start.spring.io'
+                      >
+                        start.spring.io
+                      </a>
+                    </span>{' '}
+                    and powered by{' '}
                     <span>
                       <a
                         target='_blank'
@@ -232,26 +256,13 @@ function SideLeft() {
                         Spring Initializr
                       </a>
                     </span>
-                    <span>,</span>{' '}
-                    <span>
-                      <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href='https://buildpacks.io/'
-                      >
-                        Cloud Native Buildpacks
-                      </a>
-                    </span>{' '}
-                    <span>and</span>{' '}
-                    <span>
-                      <a
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        href='https://azure.microsoft.com/en-us/products/spring-apps'
-                      >
-                        Azure Spring Apps
-                      </a>
-                    </span>
+                    , both under the Apache License 2.0.
+                    <br />
+                    It is not affiliated with or endorsed by Broadcom or The
+                    Apache Software Foundation.
+                    <br />
+                    Spring is a trademark of Broadcom Inc. Apache Wicket is a
+                    trademark of The Apache Software Foundation.
                   </div>
                 </div>
               </div>
