@@ -40,6 +40,18 @@ Spring Initializr snapshots from https://repo.spring.io/snapshot, and so does th
 On Railway, the service builds from the `Dockerfile` (see `railway.json`), listens on the
 `PORT` Railway provides and reports its health at `/actuator/health`.
 
+The live site, https://start.fullstack4j.dev, is that Railway service. It redeploys on every
+push to `main` and is also reachable at https://fullstack4j-start-production.up.railway.app.
+The custom domain is a CNAME record at Hover pointing to the target Railway shows under the
+service's Networking settings. The domain must have no wildcard (`*`) record: Hover answers
+address lookups for `start` with the wildcard's address even when the CNAME exists. The site can
+also be used from the command line, like start.spring.io:
+
+[indent=0]
+----
+    $ curl https://start.fullstack4j.dev/starter.zip -d dependencies=wicket -o demo.zip
+----
+
 == Trademarks
 
 Spring is a trademark of Broadcom Inc. Apache Wicket is a trademark of The Apache Software
