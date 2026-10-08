@@ -41,8 +41,7 @@ On Railway, the service builds from the `Dockerfile` (see `railway.json`), liste
 `PORT` Railway provides and reports its health at `/actuator/health`.
 
 The live site, https://start.fullstack4j.dev, is that Railway service. It redeploys on every
-push to `main` and is also reachable at https://fullstack4j-start-production.up.railway.app.
-The site can also be used from the command line, like start.spring.io:
+push to `main`. The site can also be used from the command line, like start.spring.io:
 
 [indent=0]
 ----
