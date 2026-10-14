@@ -24,6 +24,7 @@ import io.spring.start.site.extension.dependency.springsecurity.SpringSecurityRS
 import io.spring.start.site.extension.dependency.springsecurity.SpringSecurityWebAuthnBuildCustomizer;
 import io.spring.start.site.extension.dependency.springshell.SpringShellTestBuildCustomizer;
 import io.spring.start.site.extension.dependency.thymeleaf.ThymeleafBuildCustomizer;
+import io.spring.start.site.extension.dependency.wicket.WicketTestBuildCustomizer;
 
 import org.springframework.context.annotation.Bean;
 
@@ -116,6 +117,12 @@ public class DependencyProjectGenerationConfiguration {
 	@ConditionalOnRequestedDependency("spring-shell")
 	public SpringShellTestBuildCustomizer springShellTestBuildCustomizer() {
 		return new SpringShellTestBuildCustomizer();
+	}
+
+	@Bean
+	@ConditionalOnRequestedDependency("wicket")
+	public WicketTestBuildCustomizer wicketTestBuildCustomizer() {
+		return new WicketTestBuildCustomizer();
 	}
 
 	@Bean

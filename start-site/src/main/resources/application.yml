@@ -276,7 +276,7 @@ initializr:
           compatibilityRange: "[4.0.0,4.2.0-M1)"
           mappings:
             - compatibilityRange: "[4.0.0,4.2.0-M1)"
-              version: 0.1.0
+              version: 0.2.0
           links:
             - rel: reference
               href: https://danielbartl.github.io/wicket-spring-boot-starter/

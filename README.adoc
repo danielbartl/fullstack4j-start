@@ -13,6 +13,11 @@ arriving through regular merges:
 * `start-site/src/main/resources/application.yml`: the Apache Wicket entry at the top of the
   "Web" group, and Maven instead of Gradle as the default project type. Both are marked with a
   `fullstack4j` comment or sit next to one.
+* `start-site/src/main/java/.../extension/dependency/wicket`: Wicket projects get the
+  starter's test starter, `wicket-spring-boot-starter-test` (registered in
+  `DependencyProjectGenerationConfiguration`), and a Java version of at most 25.
+  `.../dependency/jobrunr` makes JobRunr projects run out of the box (registered in
+  `META-INF/spring/...ProjectGenerationConfiguration.imports`).
 * `start-client`: the logo, colors, icons, social card, page metadata and links, and Wicket
   weighted first in the dependency search (`src/Extend.json`).
 * `Dockerfile` and `railway.json`: the container image and its Railway deployment.
