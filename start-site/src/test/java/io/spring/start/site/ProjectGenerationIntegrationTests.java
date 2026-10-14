@@ -1,17 +1,5 @@
 /*
  * Copyright 2012 - present the original author or authors.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 package io.spring.start.site;
@@ -19,9 +7,11 @@ package io.spring.start.site;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import io.spring.initializr.generator.buildsystem.BuildSystem;
@@ -76,6 +66,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ProjectGenerationIntegrationTests {
 
 	private static final boolean FORCE_REFRESH_DEPENDENCIES = false;
+
+	private static final Duration BUILD_TIMEOUT = Duration.ofMinutes(10);
 
 	private final ProjectGenerationInvoker<ProjectRequest> invoker;
 
@@ -146,8 +138,15 @@ class ProjectGenerationIntegrationTests {
 			.resolve("output.log");
 		processBuilder.redirectError(output.toFile());
 		processBuilder.redirectOutput(output.toFile());
-		assertThat(processBuilder.start().waitFor()).describedAs(String.join("\n", Files.readAllLines(output)))
-			.isEqualTo(0);
+		Process process = processBuilder.start();
+		boolean exited = process.waitFor(BUILD_TIMEOUT.toMillis(), TimeUnit.MILLISECONDS);
+		if (!exited) {
+			process.descendants().forEach(ProcessHandle::destroyForcibly);
+			process.destroyForcibly();
+		}
+		String log = String.join("\n", Files.readAllLines(output));
+		assertThat(exited).describedAs("Build did not finish within %s%n%s", BUILD_TIMEOUT, log).isTrue();
+		assertThat(process.exitValue()).describedAs(log).isEqualTo(0);
 	}
 
 	private Path getHome(BuildSystem buildSystem) {
