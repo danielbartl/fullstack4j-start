@@ -5,6 +5,7 @@
 package io.spring.start.site.project;
 
 import io.spring.initializr.generator.project.ProjectDescriptionCustomizer;
+import io.spring.start.site.extension.dependency.fullstack4j.Fullstack4jProjectDescriptionCustomizer;
 import io.spring.start.site.extension.dependency.jooq.JooqVersionProjectDescriptionCustomizer;
 import io.spring.start.site.extension.dependency.timefold.TimefoldVersionProjectDescriptionCustomizer;
 import io.spring.start.site.extension.dependency.vaadin.VaadinVersionProjectDescriptionCustomizer;
@@ -50,6 +51,11 @@ public class ProjectDescriptionCustomizerConfiguration {
 	@Bean
 	WicketJavaVersionProjectDescriptionCustomizer wicketJavaVersionProjectDescriptionCustomizer() {
 		return new WicketJavaVersionProjectDescriptionCustomizer();
+	}
+
+	@Bean
+	Fullstack4jProjectDescriptionCustomizer fullstack4jProjectDescriptionCustomizer() {
+		return new Fullstack4jProjectDescriptionCustomizer();
 	}
 
 }

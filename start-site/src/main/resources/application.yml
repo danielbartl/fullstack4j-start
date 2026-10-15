@@ -201,6 +201,26 @@ initializr:
         name: Shibboleth Releases Repository
         url: "https://build.shibboleth.net/maven/releases"
   dependencies:
+    # fullstack4j: the whole stack via dev.jbaby:fullstack4j-spring-boot-starter
+    - name: fullstack4j
+      content:
+        - name: fullstack4j
+          id: fullstack4j
+          groupId: dev.jbaby
+          artifactId: fullstack4j-spring-boot-starter
+          description: The whole fullstack4j stack in one starter, at versions that work together. Apache Wicket with Wicket Oat, Spring Modulith and MongoDB, tested with WicketTester and a MongoDB replica set from Testcontainers.
+          facets:
+            - web
+          compatibilityRange: "[4.1.0,4.2.0-M1)"
+          mappings:
+            - compatibilityRange: "[4.1.0,4.2.0-M1)"
+              version: 0.1.0
+          links:
+            - rel: reference
+              href: https://github.com/danielbartl/fullstack4j-spring-boot-starter#readme
+            - rel: home
+              href: https://fullstack4j.dev
+              description: fullstack4j Homepage
     - name: Developer Tools
       content:
         - name: GraalVM Native Support

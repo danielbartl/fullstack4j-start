@@ -1,5 +1,9 @@
 [
   {
+    "id": "fullstack4j",
+    "weight": 100
+  },
+  {
     "id": "wicket",
     "weight": 100
   },

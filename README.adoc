@@ -3,23 +3,34 @@
 A fork of https://github.com/spring-io/start.spring.io[start.spring.io] that runs at
 https://start.fullstack4j.dev. It offers everything start.spring.io does, plus
 *Apache Wicket*, through https://danielbartl.github.io/wicket-spring-boot-starter/[the Wicket
-Spring Boot Starter], in a Wicket-orange UI. Generated projects build with Maven by default.
+Spring Boot Starter], and *fullstack4j*, the whole stack through
+https://github.com/danielbartl/fullstack4j-spring-boot-starter[the fullstack4j Spring Boot
+Starter], in a Wicket-orange UI. Generated projects build with Maven by default.
 
 == What differs from upstream
 
 The fork deliberately stays close to upstream, so that new Spring Boot versions and fixes keep
 arriving through regular merges:
 
-* `start-site/src/main/resources/application.yml`: the Apache Wicket entry at the top of the
-  "Web" group, and Maven instead of Gradle as the default project type. Both are marked with a
-  `fullstack4j` comment or sit next to one.
+* `start-site/src/main/resources/application.yml`: the fullstack4j entry in a group of its own
+  at the top, the Apache Wicket entry at the top of the "Web" group, and Maven instead of
+  Gradle as the default project type. All are marked with a `fullstack4j` comment or sit next
+  to one.
+* `start-site/src/main/java/.../extension/dependency/fullstack4j`: fullstack4j projects get
+  the test starter, `fullstack4j-spring-boot-starter-test`, and a `Test<Application>` and
+  application test that run against `MongoDbReplicaSetConfiguration` (registered in
+  `META-INF/spring/...ProjectGenerationConfiguration.imports`). The wicket, data-mongodb,
+  modulith and testcontainers entries are dropped when fullstack4j is selected, since it
+  brings all four (`Fullstack4jProjectDescriptionCustomizer`, registered in
+  `ProjectDescriptionCustomizerConfiguration`).
 * `start-site/src/main/java/.../extension/dependency/wicket`: Wicket projects get the
   starter's test starter, `wicket-spring-boot-starter-test` (registered in
-  `DependencyProjectGenerationConfiguration`), and a Java version of at most 25.
+  `DependencyProjectGenerationConfiguration`), and a Java version of at most 25, as do
+  fullstack4j projects.
   `.../dependency/jobrunr` makes JobRunr projects run out of the box (registered in
   `META-INF/spring/...ProjectGenerationConfiguration.imports`).
-* `start-client`: the logo, colors, icons, social card, page metadata and links, and Wicket
-  weighted first in the dependency search (`src/Extend.json`).
+* `start-client`: the logo, colors, icons, social card, page metadata and links, and
+  fullstack4j and Wicket weighted first in the dependency search (`src/Extend.json`).
 * `Dockerfile` and `railway.json`: the container image and its Railway deployment.
 
 == Updating from upstream

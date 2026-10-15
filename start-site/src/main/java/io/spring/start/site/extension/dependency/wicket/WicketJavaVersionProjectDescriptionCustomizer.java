@@ -13,9 +13,10 @@ import io.spring.initializr.generator.project.ProjectDescriptionField;
 import io.spring.start.site.project.JavaVersionProjectDescriptionCustomizer;
 
 /**
- * Caps the Java version of projects that depend on Apache Wicket at 25. Wicket 10.11
- * cannot create its {@code @SpringBean} proxies on Java 26 or later, where ByteBuddy may
- * no longer define classes through {@code Unsafe}; Wicket 10.12 fixes this.
+ * Caps the Java version of projects that depend on Apache Wicket, directly or through
+ * fullstack4j, at 25. Wicket 10.11 cannot create its {@code @SpringBean} proxies on Java
+ * 26 or later, where ByteBuddy may no longer define classes through {@code Unsafe};
+ * Wicket 10.12 fixes this.
  *
  * @author Daniel Bartl
  */
@@ -31,7 +32,7 @@ public class WicketJavaVersionProjectDescriptionCustomizer implements ProjectDes
 	@Override
 	public void customize(MutableProjectDescription description) {
 		Collection<String> dependencyIds = description.getRequestedDependencies().keySet();
-		if (!dependencyIds.contains("wicket")) {
+		if (!dependencyIds.contains("wicket") && !dependencyIds.contains("fullstack4j")) {
 			return;
 		}
 		Integer javaGeneration = determineJavaGeneration(description.getLanguage().jvmVersion());
